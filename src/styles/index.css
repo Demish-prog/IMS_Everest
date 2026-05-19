@@ -1,0 +1,116 @@
+@import 'tailwindcss';
+
+/* Everest IMS Design System — dark teal/navy enterprise theme */
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Primary palette — dark teal/navy */
+  --color-primary-50: #e6f4f4;
+  --color-primary-100: #b3dede;
+  --color-primary-200: #80c8c8;
+  --color-primary-300: #4db2b2;
+  --color-primary-400: #1a9c9c;
+  --color-primary-500: #0d7377;
+  --color-primary-600: #0a5c5f;
+  --color-primary-700: #074547;
+  --color-primary-800: #052e30;
+  --color-primary-900: #021718;
+
+  /* Sidebar — dark navy */
+  --color-sidebar: #0f1729;
+  --color-sidebar-hover: #1a2744;
+  --color-sidebar-active: #1e3a5f;
+  --color-sidebar-border: #1e293b;
+
+  /* Content area — light in light mode */
+  --color-content: #f1f5f9;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #ffffff;
+
+  /* Typography — strong contrast on light cards/panels */
+  --color-heading: #0f172a;
+  --color-heading-secondary: #1e293b;
+  --color-heading-muted: #334155;
+  --color-label: #475569;
+
+  /* Semantic */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
+
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.08);
+  --shadow-card-hover: 0 4px 12px 0 rgb(0 0 0 / 0.1);
+  --shadow-drawer: 0 25px 50px -12px rgb(0 0 0 / 0.35);
+
+  --radius-card: 0.75rem;
+  --radius-button: 0.5rem;
+}
+
+/* Dark theme overrides */
+.dark {
+  --color-content: #0f1419;
+  --color-surface: #1a2332;
+  --color-surface-elevated: #243044;
+  --color-heading: #f8fafc;
+  --color-heading-secondary: #e2e8f0;
+  --color-heading-muted: #cbd5e1;
+  --color-label: #94a3b8;
+}
+
+@layer base {
+  html {
+    @apply antialiased scroll-smooth;
+  }
+
+  body {
+    @apply bg-content text-slate-800 dark:text-slate-200 font-sans;
+    /* Responsive typography using clamp */
+    font-size: clamp(0.875rem, 0.8rem + 0.25vw, 1rem);
+  }
+
+  /* Focus visible for accessibility */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary-500;
+  }
+}
+
+@layer components {
+  /* Reusable heading styles — readable on light & dark surfaces */
+  .text-heading {
+    color: var(--color-heading);
+  }
+
+  .text-heading-secondary {
+    color: var(--color-heading-secondary);
+  }
+
+  .text-heading-card {
+    color: var(--color-heading-muted);
+  }
+
+  .text-label {
+    color: var(--color-label);
+  }
+
+  .text-heading-table {
+    color: var(--color-heading-muted);
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary-600) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-primary-600/40 rounded-full;
+  }
+}
