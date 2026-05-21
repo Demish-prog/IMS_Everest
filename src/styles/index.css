@@ -62,7 +62,11 @@
 @layer base {
   html {
     @apply antialiased scroll-smooth;
+    transition: background-color 500ms ease, color 500ms ease;
   }
+  * {
+  transition: background-color 500ms ease, border-color 500ms ease, color 300ms ease;
+}
 
   body {
     @apply bg-content text-slate-800 dark:text-slate-200 font-sans;
